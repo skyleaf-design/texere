@@ -3,15 +3,19 @@ const exec = require('child_process').exec;
 const log = require('fancy-log');
 const spawn = require('child_process').spawn;
 
-const clang_build = "clang++ -O3 -std=c++14 src/main.cpp -lboost_thread-mt -lboost_system-mt -pthread -o dist/my_app";
+function run_clang(src_path, dest_path, callback) {
+  const clang_build = `clang++ -std=c++14 ${src_path} -lboost_thread-mt -lboost_system-mt -pthread -o ${dest_path}`;
 
-function build(done) {
   exec(clang_build, function (error, stdout, stderr) {
     log("Compiled.");
     if (stdout.length > 0) log(stdout);
     if (stderr.length > 0) log(stderr);
-    done();
+    callback();
   });
+}
+
+function build(done) {
+  run_clang("src/main.cpp", "dist/my_app", done);
 }
 
 function watch(done) {
@@ -33,6 +37,7 @@ function serve(done) {
     
     const app_instance = spawn('./dist/my_app');
     if (!app_instance) { throw "App failed to start!" }
+    log("Started the app!");
     app_instance.on('close', start_app);
     // @TODO: I'm not sure what error these get called in.
     app_instance.on('error', () => { should_stop_spawning = true });

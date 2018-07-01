@@ -4,7 +4,7 @@
   "description": "A crow test project: uses Gulp to compile/serve after source edits.",
   "main": "crow",
   "scripts": {
-    "start": "gulp4",
+    "start": "clang++ -std=c++14 src/main.cpp -lboost_filesystem -lboost_thread-mt -lboost_system-mt -pthread -o dist/my_app",
     "test": "tape tests.js"
   },
   "keywords": [
