@@ -1,10 +1,10 @@
 {
-  "name": "crow",
+  "name": "texere",
   "version": "0.0.1",
   "description": "A crow test project: uses Gulp to compile/serve after source edits.",
   "main": "crow",
   "scripts": {
-    "start": "clang++ -std=c++14 src/http_wrapper.cpp -lboost_filesystem -lboost_thread-mt -lboost_system-mt -pthread -o dist/my_app",
+    "start": "gulp4",
     "test": "tape tests.js"
   },
   "keywords": [

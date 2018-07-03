@@ -50,13 +50,16 @@ int main()
     const crow::request& req,
     const std::string the_path
   ){
+    std::cout << "Hey, we are here" << std::endl;
     // NOTE: you must cd to the '/dist' directory for the current directory to work.
-    path file_path = boost::filesystem::current_path() /= boost::filesystem::path{"dist/static"} /= the_path;
+    path file_path = boost::filesystem::current_path() /= boost::filesystem::path{"static"} /= the_path;
+    std::cout << file_path << std::endl;
     boost::filesystem::ifstream this_file{file_path};
     if (!this_file.is_open()) { return crow::response{""}; }
 
     std::string the_string((std::istreambuf_iterator<char>(this_file)), (std::istreambuf_iterator<char>() ) );
-    return crow::response{the_string};
+    crow::response res{the_string};
+    return res;
   });
 
   // Entity REST API.
