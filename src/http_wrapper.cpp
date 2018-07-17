@@ -5,6 +5,8 @@
 #include <boost/filesystem/fstream.hpp>
 #include <unordered_set>
 
+namespace fs = boost::filesystem;
+
 int main()
 {
   crow::SimpleApp app;
@@ -42,6 +44,8 @@ int main()
 
   // Static client file server.
 
+  /*
+
   CROW_ROUTE(app, "/static/<path>")
   ([](
     const crow::request& req,
@@ -49,9 +53,9 @@ int main()
   ){
     std::cout << "Hey, we are here" << std::endl;
     // NOTE: you must cd to the '/dist' directory for the current directory to work.
-    boost::filesystem::path file_path = boost::filesystem::current_path() /= boost::filesystem::path{"static"} /= the_path;
+    fs::path file_path = fs::current_path() /= fs::path{"static"} /= the_path;
     std::cout << file_path << std::endl;
-    boost::filesystem::ifstream this_file{file_path};
+    fs::ifstream this_file{file_path};
     if (!this_file.is_open()) { return crow::response{""}; }
 
     std::string the_string((std::istreambuf_iterator<char>(this_file)), (std::istreambuf_iterator<char>() ) );
@@ -70,6 +74,8 @@ int main()
     // GET, POST (search), PUT, PATCH, DELETE
     return crow::response{"Viggo Malmstead."};
   }); 
+
+  */
 
 
 
