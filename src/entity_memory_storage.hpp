@@ -1,13 +1,9 @@
 #include <string>
-#include "lib/event/EventBus.cpp"
-
-// Include Crow so that we can use its request/response data types.
-/// #include "lib/crow_all.h"
+// #include <boost/signal2.hpp>
 
 
 
-// Inherit from EventBus.
-class EntityMemoryStorage : EventEmitter
+class EntityMemoryStorage
 {
 private:
   int count{ 0 };

@@ -1,12 +1,9 @@
-#include "lib/crow_all.h"
-#include "entity_memory_storage.cpp"
+#include <crow.h>
 #include <iostream>
 #include <fstream>
 #include <boost/filesystem.hpp>
 #include <boost/filesystem/fstream.hpp>
 #include <unordered_set>
-
-using namespace boost::filesystem;
 
 int main()
 {
@@ -52,7 +49,7 @@ int main()
   ){
     std::cout << "Hey, we are here" << std::endl;
     // NOTE: you must cd to the '/dist' directory for the current directory to work.
-    path file_path = boost::filesystem::current_path() /= boost::filesystem::path{"static"} /= the_path;
+    boost::filesystem::path file_path = boost::filesystem::current_path() /= boost::filesystem::path{"static"} /= the_path;
     std::cout << file_path << std::endl;
     boost::filesystem::ifstream this_file{file_path};
     if (!this_file.is_open()) { return crow::response{""}; }
@@ -71,7 +68,7 @@ int main()
   ){
     std::cout << "Is this the muffin man??" << "\n";
     // GET, POST (search), PUT, PATCH, DELETE
-    return crow::response{"Schlomo Vaknin."};
+    return crow::response{"Viggo Malmstead."};
   }); 
 
 
