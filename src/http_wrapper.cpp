@@ -63,6 +63,8 @@ int main()
     return res;
   });
 
+  */
+
   // Entity REST API.
 
   CROW_ROUTE(app, "/note/<int>")
@@ -75,7 +77,7 @@ int main()
     return crow::response{"Viggo Malmstead."};
   }); 
 
-  */
+  
 
 
 
