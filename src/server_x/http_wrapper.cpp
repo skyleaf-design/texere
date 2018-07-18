@@ -1,4 +1,4 @@
-#include "../lib/crow_all.hpp"
+#include "../../lib/crow_all.hpp"
 #include <iostream>
 #include <fstream>
 #include <boost/filesystem.hpp>
@@ -44,7 +44,7 @@ int main()
 
   // Static client file server.
 
-  /*
+
 
   CROW_ROUTE(app, "/static/<path>")
   ([](
@@ -63,7 +63,7 @@ int main()
     return res;
   });
 
-  */
+
 
   // Entity REST API.
 
@@ -74,7 +74,7 @@ int main()
   ){
     std::cout << "Is this the muffin man??" << "\n";
     // GET, POST (search), PUT, PATCH, DELETE
-    return crow::response{"Viggo Malmstead."};
+    return crow::response{"Sylas Marner."};
   }); 
 
   
