@@ -2,3 +2,4 @@ texere.code-workspace
 node_modules/
 dist/
 build/
+CMakeLists.txt.user*
