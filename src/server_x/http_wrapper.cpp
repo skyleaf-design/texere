@@ -74,7 +74,7 @@ int main()
   ){
     std::cout << "Is this the muffin man??" << "\n";
     // GET, POST (search), PUT, PATCH, DELETE
-    return crow::response{"Sylas Marner."};
+    return crow::response{"McGuinness Mulva."};
   }); 
 
   

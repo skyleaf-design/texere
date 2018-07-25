@@ -1,9 +1,5 @@
 cmake_minimum_required(VERSION 3.10.2)
 
-# These variables must be set BEFORE the project command!
-set(CMAKE_PREFIX_PATH "C:\\Qt-5.11\\5.11.0\\msvc2015")
-# set(CMAKE_TOOLCHAIN_FILE "/c/vcpkg/scripts/buildsystems/vcpkg.cmake")
-set(CMAKE_TOOLCHAIN_FILE "C:\\vcpkg\\scripts\\buildsystems\\vcpkg.cmake")
 set(CMAKE_AUTOMOC ON)
 
 project(Texere)
