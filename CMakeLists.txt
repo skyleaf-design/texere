@@ -1,6 +1,7 @@
 cmake_minimum_required(VERSION 3.10.2)
 
 set(CMAKE_AUTOMOC ON)
+set(CMAKE_AUTORCC ON)
 
 project(Texere)
 
@@ -10,12 +11,9 @@ target_link_libraries(texere_server Boost::system Boost::filesystem Boost::threa
 target_compile_features(texere_server PUBLIC cxx_std_11)
 
 
-find_package(Qt5Core REQUIRED)
-find_package(Qt5Gui REQUIRED)
-find_package(Qt5Widgets REQUIRED)
-find_package(Qt5Network REQUIRED)
-
-add_executable(texere_ui_x src/ui_x/main.cpp)
+find_package(Qt5 REQUIRED COMPONENTS Core Gui Widgets Network Qml Quick)
+qt5_add_resources(QML_qrc src/ui_x/qml.qrc)
+add_executable(texere_ui_x src/ui_x/main.cpp ${QML_qrc})
 
 # Windows: copy relavent Qt5 DLL libraries beside the executable.
 add_custom_command(
@@ -25,7 +23,9 @@ add_custom_command(
         $<TARGET_FILE:Qt5::Core>
         $<TARGET_FILE:Qt5::Gui>
         $<TARGET_FILE:Qt5::Network>
+        $<TARGET_FILE:Qt5::Qml>
+        $<TARGET_FILE:Qt5::Quick>
         $<TARGET_FILE_DIR:texere_ui_x>
 )
 
-target_link_libraries(texere_ui_x Qt5::Core Qt5::Gui Qt5::Widgets Qt5::Network)
+target_link_libraries(texere_ui_x Qt5::Core Qt5::Gui Qt5::Widgets Qt5::Network Qt5::Quick Qt5::Qml)

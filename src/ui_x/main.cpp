@@ -6,22 +6,13 @@
 #include <QNetworkAccessManager>
 #include <QNetworkReply>
 #include <QNetworkRequest>
+#include <QQmlApplicationEngine>
 
 int main(int argc, char *argv[]) {
 
   QApplication app(argc, argv);
 
-  QWidget widget;
-  widget.resize(640, 480);
-  widget.setWindowTitle("Hello, world!!!");
-
-  QGridLayout *gridLayout = new QGridLayout(&widget);
-
-  QLabel * label = new QLabel("Hello, world!!!");
-  label->setAlignment(Qt::AlignVCenter | Qt::AlignHCenter);
-  gridLayout->addWidget(label);
-
-  widget.show();
-
+  QQmlApplicationEngine engine;
+  engine.load(QUrl("qrc:/main.qml"));
   return app.exec();
 }
