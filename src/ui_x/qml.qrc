@@ -1,5 +1,7 @@
 <!DOCTYPE RCC><RCC version="1.0">
-<qresource>
-  <file>main.qml</file>
+<qresource prefix="/">
+  <file alias="main.qml">renderables/main.qml</file>
+  <file alias="custom/Red.qml">renderables/red.qml</file>
+  <file alias="custom/Blue.qml">renderables/blue.qml</file>
 </qresource>
 </RCC>
