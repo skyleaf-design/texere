@@ -1,6 +1,7 @@
 import QtQuick.Layouts 1.11
 import QtQuick 2.11
 import QtQuick.Controls 1.0
+import Qt.labs.handlers 1.0
 
 ApplicationWindow
 {
@@ -13,6 +14,7 @@ ApplicationWindow
     id: layout
     anchors.fill: parent
     spacing: 6
+    
     Rectangle {
       color: 'gray'
       Layout.fillWidth: true
@@ -33,9 +35,18 @@ ApplicationWindow
         anchors.fill: parent
         model: api_results
         delegate: Rectangle {
-          Column {
-            Text { text: name }
-            Text { text: email }
+          anchors.left: parent.left
+          anchors.right: parent.right
+          height: 75
+          Text {
+            anchors.horizontalCenter: parent.horizontalCenter
+            anchors.top: parent.top
+            text: name
+          }
+          Text {
+            anchors.horizontalCenter: parent.horizontalCenter
+            anchors.bottom: parent.bottom
+            text: email
           }
         }
       }
@@ -46,6 +57,24 @@ ApplicationWindow
       id: api_results
       ListElement { name: "My Self"; email: "some@some.com" }
       ListElement { name: "Schlomo Vaknin"; email: "some@schlomo.com" }
+      ListElement { name: "Venus Sanchez"; email: "zak@schlomo.com" }
+      ListElement { name: "Beboe Nomergetzen"; email: "bb@zz.com" }
+      ListElement { name: "My Self"; email: "some@some.com" }
+      ListElement { name: "Schlomo Vaknin"; email: "some@schlomo.com" }
+      ListElement { name: "Venus Sanchez"; email: "zak@schlomo.com" }
+      ListElement { name: "Beboe Nomergetzen"; email: "bb@zz.com" }
+      ListElement { name: "My Self"; email: "some@some.com" }
+      ListElement { name: "Schlomo Vaknin"; email: "some@schlomo.com" }
+      ListElement { name: "Venus Sanchez"; email: "zak@schlomo.com" }
+      ListElement { name: "Beboe Nomergetzen"; email: "bb@zz.com" }
+      ListElement { name: "My Self"; email: "some@some.com" }
+      ListElement { name: "Schlomo Vaknin"; email: "some@schlomo.com" }
+      ListElement { name: "Venus Sanchez"; email: "zak@schlomo.com" }
+      ListElement { name: "Beboe Nomergetzen"; email: "bb@zz.com" }
+      ListElement { name: "My Self"; email: "some@some.com" }
+      ListElement { name: "Schlomo Vaknin"; email: "some@schlomo.com" }
+      ListElement { name: "Venus Sanchez"; email: "zak@schlomo.com" }
+      ListElement { name: "Beboe Nomergetzen"; email: "bb@zz.com" }
     }
 
 
@@ -56,6 +85,12 @@ ApplicationWindow
       TextArea {
         anchors.fill: parent
         text: "TextArea\n...\n...\n...\n...\n...\n...\n"
+        Rectangle {
+          color: "orange"
+          width: 100
+          height: 100
+          DragHandler {}
+        }
       }
     }
   }
