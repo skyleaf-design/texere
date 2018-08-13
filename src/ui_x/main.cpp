@@ -1,18 +1,16 @@
-#include <QtWidgets/QApplication>
-#include <QtWidgets/QWidget>
-#include <QtWidgets/QGridLayout>
-#include <QtWidgets/QLabel>
-#include <QMainWindow>
-#include <QNetworkAccessManager>
-#include <QNetworkReply>
-#include <QNetworkRequest>
-#include <QQmlApplicationEngine>
+#include <QtWidgets>
+#include "TexereWindow.h"
+
+#include <iostream>
+
+#include <QtNetwork>
 
 int main(int argc, char *argv[]) {
 
   QApplication app(argc, argv);
 
-  QQmlApplicationEngine engine;
-  engine.load(QUrl("qrc:/main.qml"));
+  TexereWindow the_window;
+  the_window.show();
+
   return app.exec();
 }

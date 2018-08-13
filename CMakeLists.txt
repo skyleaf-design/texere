@@ -11,9 +11,9 @@ target_link_libraries(texere_server Boost::system Boost::filesystem Boost::threa
 target_compile_features(texere_server PUBLIC cxx_std_11)
 
 
-find_package(Qt5 REQUIRED COMPONENTS Core Gui Widgets Network Qml Quick)
+find_package(Qt5 REQUIRED COMPONENTS Core Gui Widgets Network Qml Quick QuickWidgets)
 qt5_add_resources(QML_qrc src/ui_x/qml.qrc)
-add_executable(texere_ui_x src/ui_x/main.cpp ${QML_qrc})
+add_executable(texere_ui_x src/ui_x/main.cpp src/ui_x/TexereWindow.cpp src/ui_x/TexereWindow.h ${QML_qrc})
 
 # Windows: copy relavent Qt5 DLL libraries beside the executable.
 add_custom_command(
@@ -28,4 +28,4 @@ add_custom_command(
         $<TARGET_FILE_DIR:texere_ui_x>
 )
 
-target_link_libraries(texere_ui_x Qt5::Core Qt5::Gui Qt5::Widgets Qt5::Network Qt5::Quick Qt5::Qml)
+target_link_libraries(texere_ui_x Qt5::Core Qt5::Gui Qt5::Widgets Qt5::Network Qt5::Quick Qt5::Qml Qt5::QuickWidgets)
