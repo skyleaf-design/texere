@@ -2,15 +2,19 @@
 
 #include <QtWidgets>
 #include <QtQuick>
+#include <QQuickWidget>
 
 class TexereWindow : public QMainWindow
 {
-Q_OBJECT
+		Q_OBJECT
 
 public:
   TexereWindow(QWidget *parent = Q_NULLPTR);
 
+protected:
+	void resizeEvent(QResizeEvent * event);
+
 private:
 	void setup_root_view();
-	QQuickItem *root_viewx;
+	QQuickWidget * responsive_view;
 };
