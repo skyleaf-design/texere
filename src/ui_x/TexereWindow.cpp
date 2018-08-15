@@ -30,6 +30,5 @@ void TexereWindow::setup_root_view()
 
 void TexereWindow::resizeEvent(QResizeEvent * event) {
 	int the_width = event->size().width();
-	std::cout << the_width << std::endl;
 	responsive_view->resize(the_width, responsive_view->height());
 }

@@ -27,6 +27,13 @@ RowLayout {
     ListView {
       anchors.fill: parent
       model: api_results
+      rebound: Transition {
+        NumberAnimation {
+          properties: "y"
+          duration: 400
+          easing.type: Easing.OutQuart
+        }
+      }
       delegate: Rectangle {
         anchors.left: parent.left
         anchors.right: parent.right
