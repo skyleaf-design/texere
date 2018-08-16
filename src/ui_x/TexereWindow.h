@@ -16,5 +16,7 @@ protected:
 
 private:
 	void setup_root_view();
+	void request_list();
+	void populate_list(QNetworkReply*);
 	QQuickWidget * responsive_view;
 };
