@@ -65,6 +65,18 @@ int main()
 
 
 
+  // JSON test API.
+  CROW_ROUTE(app, "/json")
+  ([]{
+      crow::json::wvalue x;
+      x["name"] = "Counselor Troi";
+      x["ship"] = "Enterprise";
+      x["captain"] = "Jean Luc Picard";
+      return x;
+  });
+
+
+
   // Entity REST API.
 
   CROW_ROUTE(app, "/note/<int>")
