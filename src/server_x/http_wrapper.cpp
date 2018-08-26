@@ -1,4 +1,6 @@
 #include "../../lib/crow_all.hpp"
+#include "../../lib/json.hpp"
+
 #include <iostream>
 #include <fstream>
 #include <boost/filesystem.hpp>
@@ -66,30 +68,21 @@ int main()
 
 
   // JSON test API.
-  CROW_ROUTE(app, "/json")
+  CROW_ROUTE(app, "/crew")
   ([]{
-      crow::json::wvalue x;
-      x["name"] = "Counselor Troi";
-      x["ship"] = "Enterprise";
-      x["captain"] = "Jean Luc Picard";
+    nlohmann::json troi = {
+      { "name", "Deanna Troi" },
+      { "ship", "Enterprise" },
+      { "captain", "Jean-Luc Picard" }
+    };
+    nlohmann::json riker = {
+      { "name", "William Riker" },
+      { "ship", "Enterprise" },
+      { "captain", "Jean-Luc Picard" }
+    };
+    nlohmann::json crew = { riker, troi };
 
-      crow::json::wvalue y;
-      y["name"] = "William Riker";
-      y["ship"] = "Enterprise";
-      y["captain"] = "Jean Luc Picard";
-
-      // You can't create a nested wvalue from a vector: instead, you have to dump
-      // each wvalue into a string, and then combine the strings into a vector, which
-      // you CAN use to instantiate the wvalue that you eventually return.
-      std::string val_1 = crow::json::dump(x);
-      std::string val_2 = crow::json::dump(y);
-      std::vector<std::string> crew_members{val_1, val_2};
-
-      // How on earth do I create an array wvalue?
-      crow::json::wvalue the_response;
-      the_response["data"] = crew_members;
-      
-      return the_response;
+    return crow::response(crew.dump(2));
   });
 
 

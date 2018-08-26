@@ -4584,6 +4584,17 @@ namespace crow
                 *this = std::move(r);
             }
 
+            wvalue(std::vector<wvalue>&& v)
+            {
+                l = std::unique_ptr<std::vector<wvalue>>(new std::vector<wvalue>{});
+                l->resize(v.size());
+                size_t idx = 0;
+                for(auto& x:v)
+                {
+                    (*l)[idx++] = std::move(x);
+                }
+            }
+
             wvalue& operator = (wvalue&& r)
             {
                 t_ = r.t_;

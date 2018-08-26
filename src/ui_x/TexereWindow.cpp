@@ -55,8 +55,10 @@ void TexereWindow::populate_list(QNetworkReply* reply) {
 	// std::cout << name << std::endl;
 	// std::cout << ship << std::endl;
 	// std::cout << captain << std::endl;
-	QJsonArray response_1 = response["data"].toArray();
+	QJsonArray response_1 = response["crew"].toArray();
+	qDebug() << response;
 	for (int i = 0; i < response_1.count(); i++) {
+		qDebug() << "HI!";
 		qDebug() << response_1[i];
 	}
 }
