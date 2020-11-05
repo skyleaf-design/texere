@@ -1,10 +1,54 @@
 # Texere
 
-## Compiling
+## Building the UI
 
-The command to compile this project on macOS is:
+###### install Qt to your system
+
+###### generate the build system
 
 ```
-clang++ -O3 -std=c++14 main.cpp -lboost_thread-mt -lboost_system-mt -pthread
+cmake -H./ -B./build
+```
+
+###### run the build command
+
+```
+cd build && make
+```
+
+###### run the UI app
+
+```
+./texere_ui_x
+````
+
+
+## Building the API
+
+###### create the Python 3 virtualenv
+
+```
+python -m venv ./py_env
+```
+
+
+###### activate the virtual env
+
+```
+source ./py_env/bin/activate
+```
+
+
+###### install the Python deps
+
+```
+pip install uvicorn fastapi
+```
+
+###### run the server
+
+```
+cd src/server_x/
+uvicorn main:app --reload
 ```
 

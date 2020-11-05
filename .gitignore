@@ -1,6 +1,6 @@
 texere.code-workspace
-node_modules/
 dist/
 build/
 CMakeLists.txt.user*
 .vscode
+./py_env
