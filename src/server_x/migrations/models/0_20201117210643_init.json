@@ -1,0 +1,5 @@
+{
+  "upgrade": [
+    "CREATE TABLE IF NOT EXISTS \"users\" (\n    \"id\" SERIAL NOT NULL PRIMARY KEY,\n    \"username\" VARCHAR(20) NOT NULL UNIQUE,\n    \"name\" VARCHAR(50),\n    \"family_name\" VARCHAR(50),\n    \"category\" VARCHAR(30) NOT NULL  DEFAULT 'misc',\n    \"password_hash\" VARCHAR(128),\n    \"created_at\" TIMESTAMPTZ NOT NULL  DEFAULT CURRENT_TIMESTAMP,\n    \"modified_at\" TIMESTAMPTZ NOT NULL  DEFAULT CURRENT_TIMESTAMP\n);\nCOMMENT ON COLUMN \"users\".\"username\" IS 'This is a username';\nCOMMENT ON TABLE \"users\" IS 'The User model';\nCREATE TABLE IF NOT EXISTS \"aerich\" (\n    \"id\" SERIAL NOT NULL PRIMARY KEY,\n    \"version\" VARCHAR(255) NOT NULL,\n    \"app\" VARCHAR(20) NOT NULL,\n    \"content\" TEXT NOT NULL\n);"
+  ]
+}
