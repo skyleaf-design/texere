@@ -48,9 +48,10 @@ async def delete_user(user_id: int):
     return Status(message=f"Deleted user {user_id}")
 
 
+
 register_tortoise(
     app,
-    db_url="sqlite://:memory:",
+    db_url="postgres://texere:texere@localhost:5432/texere",
     modules={"models": ["models"]},
     generate_schemas=True,
     add_exception_handlers=True,
